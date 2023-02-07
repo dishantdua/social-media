@@ -1,0 +1,101 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %>
+
+<div class="m-5" style="height: 100%; width: 100%; padding: 3%">
+    
+  <div class="row d-flex align-items-center">
+    <h1 style="width: fit-content;" class="d-flex  pl-5 pr-3 display-5 align-items-center">
+
+      <span class="material-icons mx-2" style="font-size: 100%" >
+          person
+      </span>
+
+      <span><%= user.username %></span>
+      
+    </h1>
+
+    <% if(stalking){ %>
+      <div style="width: fit-content;">
+        <% if(!following){ %> 
+          <a style=" text-decoration: none;" href="/user/<%= user._id %>/follow" class="badge bg-primary">Follow+</a>
+        <% } else{ %> 
+          <a style=" text-decoration: none;" href="/user/<%= user._id %>/unfollow" class="badge bg-primary">Unfollow</a>
+        <% } %> 
+      </div>
+    <% } %> 
+  </div>
+    
+
+    <ul style="font-size: larger;" class="px-5 mt-4 nav nav-tabs">
+        
+        <% if(!stalking){ %> 
+          <li class="nav-item  ">
+            <a class="nav-link <%= show==="posts"?"active":"" %>" aria-current="page" href="/user/profile">Posts: <%= user.posts.length %> </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link <%= show==="followers"?"active":"" %>" href="/user/profile/followers">Followers: <%= user.followers.length - 1 %> </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link <%= show==="following"?"active":"" %>" href="/user/profile/following">Following: <%= user.following.length - 1 %> </a>
+          </li>
+        <% }else{ %>
+          <li class="nav-item">
+            <a class="nav-link <%= show==="posts"?"active":"" %>" aria-current="page" href="/user/<%= user._id %>">Posts: <%= user.posts.length %> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= show==="followers"?"active":"" %>" href="/user/<%= user._id %>/followers">Followers: <%= user.followers.length - 1 %> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%= show==="following"?"active":"" %>" href="/user/<%= user._id %>/following">Following: <%= user.following.length - 1 %> </a>
+          </li>
+        <% } %> 
+        
+    </ul>
+
+
+    <ul class="list-group list-group-flush pl-3">
+
+        <% if(show === "posts"){ %> 
+          <% for(post of user.posts){ %> 
+            <li class="list-group">
+              <div class="d-flex align-items-center ">
+                <div class="mx-2 d-flex flex-column align-items-center" style="width: fit-content;">
+                  <span class="material-icons">
+                    <a class="<%= post.upvoted?"color-green":"color-black" %> " style="text-decoration: none;" href="/posts/<%= post._id %>/upvote">expand_less</a>
+                  </span> 
+                  <span ><%= post.upvotes.length - post.downvotes.length %></span>
+                  <span class="material-icons">
+                    <a class="<%= post.downvoted?"color-red":"color-black" %> " style="text-decoration: none;" href="/posts/<%= post._id %>/downvote">expand_more</a>
+                  </span>
+                </div>
+                <div style="width: fit-content;">
+                  <a class="post_link" href="/posts/<%= post._id %> "><%= post.title %></a> <br>
+                  <small>&nbsp;&nbsp;&nbsp;&nbsp;created on -- <%= post.createdAt.toString().slice(3,16) %> </small>
+                </div>
+              </div>
+            </li>
+          <% } }%>  
+
+        <%  if(show === "followers"){ %> 
+          <% for(u of followers){ %> 
+            <% if(u._id.toString() !== user._id.toString()){ %> 
+            <li class="list-group-item">
+              <a class="post_link" href="/user/<%= u._id %>"><%= u.username %></a> <br>
+            </li>
+          <% } } } %> 
+
+        <%  if(show === "following"){ %> 
+          <% for(u of followings){ %> 
+            <% if(u._id.toString() !== user._id.toString()){ %> 
+            <li class="list-group-item">
+              <a class="post_link" href="/user/<%= u._id %>"><%= u.username %></a> <br>
+            </li>
+          <% } } } %> 
+
+    </ul>
+
+
+</div>
+
+
+<%- include('partials/footer') %> 

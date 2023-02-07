@@ -1,0 +1,25 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %> 
+
+<div class="m-5" style="height: 100%; width: 100%; padding: 3%">
+
+    <h1 class="display-3 mb-3">Update Post</h1>
+
+<form method="POST" action="/posts/<%= post._id %>/update" style="font-size: larger; width: 80%;">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Title</span>
+      
+        <input name="title" value="<%= post.title %> " type="text" class="form-control" >
+
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">With textarea</span>
+        <textarea name="description"  class="form-control" aria-label="With textarea"><%= post.description %> </textarea>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success">Update Post</button>
+  </form>
+
+</div>
+<%- include('partials/footer') %> 

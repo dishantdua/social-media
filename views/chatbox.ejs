@@ -1,0 +1,25 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %> 
+
+    <div class="container">
+        <div class="chatbox">
+            <div class="chat">
+            </div>
+            <form id="form">
+                <input name="msg" type="text" id="msg" placeholder="type your msg here">
+                <button type="submit" id="btn">send</button>
+            </form>
+        </div>
+    </div>
+    
+       
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script  src="/js/chat-engine.js"></script>
+
+<% if(user){ %> 
+    <script>
+        new ChatEngine('chatbox', "<%= user.username %>")
+    </script>
+<% } %> 
+
+<%- include('partials/footer') %> 

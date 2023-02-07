@@ -1,0 +1,84 @@
+.post_link {
+    color: black;
+    text-decoration: none;
+    font-size: larger;
+}
+
+a.badge:hover{
+    color: white
+}
+/* 
+.vote{
+    color: black
+}
+
+.vote:hover{
+    color: darkcyan
+} */
+
+.color-black{
+    color: black
+}
+.color-green{
+    color: green
+}
+.color-red{
+    color: red
+}
+
+.chatbox{
+    border: 2px dotted black;
+    width: 500px;
+    padding: 5px;
+    display: block;
+    margin: auto;
+}
+.chat{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+.chat::-webkit-scrollbar{
+    display: none
+}
+
+.left{
+    margin-left: 5px;
+}
+
+.right{
+    margin-right: 5px;
+    align-self: flex-end;
+}
+
+.msg{
+    
+    background-color: rgb(231, 229, 229);
+    font-size: larger;
+    width: 50%;
+    margin-top: 5px;
+    padding: 0px 5px;
+}
+
+.center{
+    background-color: lavender;
+    margin-top: 10px;
+    align-self: center;
+}
+
+
+
+#form{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 88%
+}

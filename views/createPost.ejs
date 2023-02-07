@@ -1,0 +1,25 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %> 
+
+<div class="m-5" style="height: 100%; width: 100%; padding: 3%">
+
+    <h1 class="display-3 mb-3">Add Post</h1>
+
+<form method="POST" action="/posts/create" style="font-size: larger; width: 80%;">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Title</span>
+      
+        <input name="title" type="text" required class="form-control" >
+
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Description</span>
+        <textarea name="description" class="form-control" required aria-label="With textarea"></textarea>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success">Create Post</button>
+  </form>
+
+</div>
+<%- include('partials/footer') %> 

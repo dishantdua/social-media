@@ -1,0 +1,19 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %> 
+
+<div style="width: 90%; padding-top: 5%;">
+  <h1 class="display-5"><%= post.title %> </h1>
+  <small>by <a href="/user/<%= post.user._id %>"><%= post.user.username %>  </a> on <%= post.createdAt.toString().slice(3,16) %></small>
+<hr>
+  <div class="container px-3">
+    <p style="font-size:x-large;"><%= post.description %> </p>
+  </div>
+<hr>
+
+<% if(authorized){ %> 
+  <a class="btn btn-warning" href="/posts/<%= post._id %>/update">Update</a>
+  <a class="btn btn-danger" href="/posts/<%= post._id %>/delete">Delete</a>
+  <% } %> 
+</div>
+
+<%- include('partials/footer') %> 

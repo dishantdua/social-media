@@ -1,0 +1,43 @@
+<%- include('partials/header') %> 
+<%- include('partials/navbar') %> 
+
+
+
+    <div class="row p-3" style="margin-top: 7%;">
+
+        <div class="col-4" style="width: 60%">
+            <h1 class="display-2">
+                Remember Writing?
+            </h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi,
+                molestiae cum reprehenderit, repellendus esse a perferendis excepturi quas
+                accusantium quis ea praesentium temporibus quibusdam aliquid itaque. Sit, 
+                beatae provident.
+            </p>
+        </div>
+
+        <div class="col-4">
+            <form action="/user/Signup" method="post">
+
+                <div class="input-group mb-3">
+                    <input type="test" class="form-control" name="name" required placeholder="Name">            </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="username" required placeholder="username">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" required placeholder="password">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success" type="submit">SignUp</button>
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+    <%- include('partials/footer') %> 
